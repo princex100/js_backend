@@ -7,7 +7,7 @@ dotenv.config()
 export const dbconnect=async()=>{
     try{
          const connectioninstance=await mongoose.connect(`${process.env.MONGODB_URL}/${DB_NAME}`)
-         console.log(connectioninstance);
+        //  console.log(connectioninstance);
          
     }
     catch(err){
@@ -18,5 +18,5 @@ export const dbconnect=async()=>{
 
 
 
-    
+
 }
