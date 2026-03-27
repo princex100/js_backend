@@ -12,4 +12,4 @@ app.use(express.static("public"))
 
 import {router as userrouter} from "./routes/user.routes.js"
 
-app.use("api/v1/users",userrouter);
+app.use("/api/v1/users",userrouter);

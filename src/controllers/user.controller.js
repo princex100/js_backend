@@ -1,5 +1,4 @@
-import { app } from "../app";
-import { asyncHandler } from "../utils/asyncHandler";
+import { asyncHandler } from "../utils/asyncHandler.js";
 
 export const registerUser=asyncHandler((req,res,next)=>{
   res.status(200).json({

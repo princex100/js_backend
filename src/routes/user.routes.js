@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { app } from "../app";
-import { registerUser } from "../controllers/user.controller";
+import { registerUser } from "../controllers/user.controller.js";
 
 
 export const router=Router();
 
-router.get("/register",registerUser)
+router.post("/register",registerUser)
+router.get("/",registerUser)
 
 
