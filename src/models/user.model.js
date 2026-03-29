@@ -14,14 +14,16 @@ const Userschema=new Schema({
     required:true,
       unique:true,
     lowercase:true,
-    trim:true
+    trim:true,
+    index:true
   },
    email:{
     type:String,
     required:true,
       unique:true,
     lowercase:true,
-    trim:true
+    trim:true,
+    index:true
   },
    fullname:{
     type:String,
@@ -31,12 +33,10 @@ const Userschema=new Schema({
   },
    avatar:{
     type:String, //cloudinary URL
-    required:true,
       unique:true,
   },
    coverImage:{
     type:String,
-      unique:true,
   },
    password:{
     type:String,
@@ -46,18 +46,15 @@ const Userschema=new Schema({
   },
    refreshToken:{
     type:String,
-    required:true
   }
 },{timestamps:true})
 
 //
 //hashing the password just before saving the userdata or any password update
 Userschema.pre("save",async function(){
-  if(!this.isModified("password"))return next()
-
+  if(!this.isModified("password"))return
     this.password=await bcrypt.hash(this.password,10)
 
-    next()
 })
 
 //
